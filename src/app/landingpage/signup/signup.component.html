@@ -1,0 +1,41 @@
+<body ng-controller="RegisterCtrl" ng-app="myApp">
+<div class="container">
+  <div id="signup">
+    <div class="signup-screen">
+      <div class="space-bot text-center">
+        <h1>Sign up</h1>
+        <div class="divider"></div>
+      </div>
+      <form  [formGroup]="RegisterForm" (submit)="saveUser()" class="form-register" method="post" name="register" novalidate>
+        <div class="input-field col s6">
+          <input id="first-name" type="text" class="validate" required placeholder="FirstName">
+
+        </div><br>
+        <div class="input-field col s6">
+          <input id="last-name" type="text" class="validate" required placeholder="LastName">
+        </div><br>
+        <div class="input-field col s6">
+          <input  formControlName="email" id="email" type="email" required placeholder="Email">
+          <control-messages [control]="RegisterForm.controls.email"></control-messages>
+        </div><br>
+        <div class="input-field col s6">
+          <input formControlName="password" id="password" type="password" required placeholder="Password">
+          <control-messages [control]="RegisterForm.controls.password"></control-messages>
+        </div>
+        <div class="space-top text-center">
+          <button [disabled]="!RegisterForm.valid" class="waves-effect waves-light btn done" routerLink="/homepage">Register</button>
+          <button type="button" class="waves-effect waves-light btn cancel" routerLink="">Cancel</button>
+        </div>
+        <div class="container">
+          <div class="col-md-12">
+            <a target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+            <a target="_blank" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
+            <a target="_blank" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
+            <a target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>

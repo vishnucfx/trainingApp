@@ -1,0 +1,40 @@
+<body ng-controller="RegisterCtrl" ng-app="myApp">
+<div class="container">
+  <div id="signup">
+    <div class="signup-screen">
+      <div class="space-bot text-center">
+        <h1>Login</h1>
+        <div class="divider"></div>
+      </div>
+      <form [formGroup]="userForm" (submit)="saveUser()" class="form-register" method="post" name="register" novalidate>
+
+        <div class="input-field col s6">
+          <input  formControlName="email" id="email" type="email" required placeholder="Email">
+          <control-messages [control]="userForm.controls.email"></control-messages>
+        </div><br>
+        <div class="input-field col s6">
+          <input formControlName="password" id="password" type="password" required placeholder="Password">
+          <control-messages [control]="userForm.controls.password"></control-messages>
+        </div>
+        <div class="space-top text-center">
+          <button [disabled]="!userForm.valid" class="waves-effect waves-light btn done" routerLink="/homepage">
+           Login
+          </button>
+          <button type="button" class="waves-effect waves-light btn cancel" routerLink="">
+            Cancel
+          </button>
+        </div>
+
+        <div class="container">
+            <div class="col-md-12">
+              <button (click)="loginWithFacebook()" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></button>
+              <a target="_blank" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
+              <a target="_blank" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
+              <a target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
+           </div>
+        </div>
+      </form>
+     </div>
+  </div>
+</div>
+</body>
